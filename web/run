@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Make sure that the script exits if Hadrian fails to build
+set -euo pipefail
+# stack build --profile --ghc-options "-fprof-auto" hakyll:exe:hakyll-website
+stack build --flag hakyll:buildWebsite --ghc-options "-g -finfo-table-map -O0" hakyll:exe:hakyll-website
+# stack exec --profile -- hakyll-website +RTS -xc -RTS -- build
+# stack exec -- hakyll-website +RTS --backtrace -RTS -- build
+stack ghci hakyll:exe:hakyll-website --ghci-options "-fbreak-on-exception -fbreak-on-error -fno-ignore-breakpoints"
