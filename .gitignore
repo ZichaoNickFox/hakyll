@@ -29,3 +29,6 @@ web/reference
 
 # This is generated from the CHANGELOG
 web/releases.markdown
+
+.haskell-code-explorer
+.lock
